@@ -31,8 +31,8 @@ export default function FooterLink() {
   ];
   return (
     <>
-      {footerLinks.map((footerLink) => (
-        <div className="footer__block">
+      {footerLinks.map((footerLink, index) => (
+        <div className="footer__block" key={index}>
           <div className="footer__link--title">{footerLink.title}</div>
           <div className="footer__link--wrapper">
             <a className="footer__link">{footerLink.link1}</a>
