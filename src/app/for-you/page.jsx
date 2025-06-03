@@ -6,26 +6,16 @@ import SuggestedBooks from "../components/SuggestedBooks";
 
 export default function page() {
   const [selectedBook, setSelectedBook] = useState([]);
-  const [recommendedBooks, setRecommendedBooks] = useState([]);
-  async function fetchData() {
-    const res = await fetch(
-      "https://us-central1-summaristt.cloudfunctions.net/getBooks?status=selected"
-    );
-    const data = await res.json();
-    setSelectedBook(data);
-  }
-
-  async function fetchRecommendedBooks() {
-    const res = await fetch(
-      "https://us-central1-summaristt.cloudfunctions.net/getBooks?status=recommended"
-    );
-    const data = await res.json();
-    setRecommendedBooks(data);
-  }
 
   useEffect(() => {
+    async function fetchData() {
+      const res = await fetch(
+        "https://us-central1-summaristt.cloudfunctions.net/getBooks?status=selected"
+      );
+      const data = await res.json();
+      setSelectedBook(data);
+    }
     fetchData();
-    fetchRecommendedBooks();
   }, []);
 
   return (
