@@ -14,7 +14,7 @@ export default function Recommended({
   id,
 }) {
   return (
-    <Link href={`/${id}`} className="for-you__recommended--books-link ">
+    <Link href={`/book/${id}`} className="for-you__recommended--books-link ">
       <figure className="book__image--wrapper" style={{ marginBottom: "8px" }}>
         <img src={imageLink} alt="" className="book__image" />
       </figure>
