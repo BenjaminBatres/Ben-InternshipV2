@@ -4,7 +4,7 @@ import { IoPlay } from "react-icons/io5";
 
 export default function SelectedBook({ book }) {
   return (
-    <Link href={"/"} className="selected__book" key={book.id}>
+    <Link href={`/book/${book.id}`} className="selected__book" key={book.id}>
       <div className="selected__book--sub-title">{book.subTitle}</div>
       <div className="selected__book--line"></div>
       <div className="selected__book--content">
