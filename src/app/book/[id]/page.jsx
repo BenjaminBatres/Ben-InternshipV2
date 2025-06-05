@@ -8,11 +8,12 @@ import { HiOutlineLightBulb } from "react-icons/hi";
 import { LuClock3 } from "react-icons/lu";
 import { LuBookOpenText } from "react-icons/lu";
 import { FaRegBookmark } from "react-icons/fa";
-
 import SkeletonBox from "@/app/components/ui/SkeletonBox";
+import { useRouter } from "next/navigation";
 
 export default function page({ params }) {
   const { id } = React.use(params);
+  const router = useRouter()
 
   const [selectedBook, setSelectedBook] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -108,13 +109,13 @@ export default function page({ params }) {
                   <SkeletonBox width={"30%"} height={"3rem"} />
                 ) : (
                   <>
-                    <button className="inner-book__read--btn">
+                    <button className="inner-book__read--btn" onClick={() => router.push(`/player/${id}`)}>
                       <div className="inner-book__read--icon">
                         <LuBookOpenText />
                       </div>
                       <span>Read</span>
                     </button>
-                    <button className="inner-book__read--btn">
+                    <button className="inner-book__read--btn" onClick={() => router.push(`/player/${id}`)}>
                       <div className="inner-book__read--icon">
                         <IoMicOutline />
                       </div>
