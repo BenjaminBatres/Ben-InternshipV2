@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 
 
 export default function NavBar() {
-    const router = useRouter()
+  const router = useRouter()
   let isModalOpen = false;
   function toggleModal() {
     if (isModalOpen) {
