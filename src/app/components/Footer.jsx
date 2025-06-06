@@ -3,7 +3,7 @@ import FooterLink from "./ui/FooterLink";
 export default function Footer() {
 
   return (
-    <div id="footer">
+    <section id="footer">
       <div className="container">
         <div className="row">
           <div className="footer__top--wrapper">
@@ -16,6 +16,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
