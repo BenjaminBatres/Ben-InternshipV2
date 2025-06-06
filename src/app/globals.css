@@ -1267,41 +1267,41 @@ nav {
 }
 
 .accordion__title {
-    font-weight: 500;
-    font-size: 24px;
-    position: relative;
-    margin-bottom: 0;
-    color: #032b41;
-    transition: .3s;
+  font-weight: 500;
+  font-size: 24px;
+  position: relative;
+  margin-bottom: 0;
+  color: #032b41;
+  transition: 0.3s;
 }
 
 .accordion__icon {
-    width: 24px;
-    min-width: 24px;
-    height: 24px;
-    transition: transform .3s;
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
 }
 
 .accordion__icon--rotate {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .collapse {
-    position: relative;
-    height: 0;
-    overflow: hidden;
-    transition: height .35s ease;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
 }
 
 .collapse.show {
-    height: auto;
+  height: auto;
 }
 
 .accordion__body {
-    min-height: 1px;
-    padding-bottom: 24px;
-    color: #394547;
-    line-height: 1.5;
+  min-height: 1px;
+  padding-bottom: 24px;
+  color: #394547;
+  line-height: 1.5;
 }
 
 /* SKELETON BOX */
