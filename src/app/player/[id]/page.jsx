@@ -1,5 +1,6 @@
 "use client";
 import AudioPlayer from "@/app/components/AudioPlayer";
+import Searchbar from "@/app/components/Searchbar";
 import SkeletonBox from "@/app/components/ui/SkeletonBox";
 import React, { useEffect, useState } from "react";
 import { ImSpinner8 } from "react-icons/im";
@@ -26,23 +27,23 @@ export default function page({ params }) {
   }, [id]);
   return (
     <div className="wrapper">
+      <Searchbar />
       <div className="summary">
-        <div className="audio__book--summary" style={{ fontSize: "16px" }}>
-          {isLoading ? (
-            <div className="audio__book--spinner">
-              <ImSpinner8 />
+        {isLoading ? (
+          <div className="audio__book--spinner">
+            <ImSpinner8 />
+          </div>
+        ) : (
+          <div className="audio__book--summary" style={{ fontSize: "16px" }}>
+            <div className="audio__book--summary-title">
+              {selectedBook?.title}
             </div>
-          ) : (
-            <>
-              <div className="audio__book--summary-title">
-                {selectedBook?.title}
-              </div>
-              <div className="audio__book--summary-text">
-                {selectedBook?.summary}
-              </div>
-            </>
-          )}
-        </div>
+            <div className="audio__book--summary-text">
+              {selectedBook?.summary}
+            </div>
+          </div>
+        )}
+
         <div className="audio__wrapper">
           <audio src={selectedBook?.audioLink}></audio>
           <div className="audio__track--wrapper">

@@ -9,10 +9,13 @@ import { IoSearch } from "react-icons/io5";
 import { GoGear } from "react-icons/go";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { FaArrowRightFromBracket } from "react-icons/fa6";
+import { PiTextAaBold } from "react-icons/pi";
 import { usePathname } from "next/navigation";
 
 export default function Sidebar({ isOpen, setOpen }) {
   const pathname = usePathname();
+  const slicePathname = pathname.slice(0, 7);
+
   return (
     <>
       <div
@@ -28,7 +31,14 @@ export default function Sidebar({ isOpen, setOpen }) {
         <div className="sidebar__logo">
           <Image src={Logo} alt="logo"></Image>
         </div>
-        <div className="sidebar__wrapper">
+        <div
+          className="sidebar__wrapper"
+          style={{
+            height: `${
+              slicePathname === "/player" ? "calc(-140px + 100vh)" : ""
+            }`,
+          }}
+        >
           <div className="sidebar__top">
             <Link href={"/for-you"} className="sidebar__link--wrapper">
               <div
@@ -62,6 +72,24 @@ export default function Sidebar({ isOpen, setOpen }) {
               </div>
               <div className="sidebar__link--text">Search</div>
             </div>
+            {slicePathname === "/player" ? (
+              <div className="sidebar__link--wrapper sidebar__font--size-wrapper">
+                <div className="sidebar__link--text sidebar__font--size-icon ">
+                  <PiTextAaBold className="sidebar__font--size-icon-small" />
+                </div>
+                <div className="sidebar__link--text sidebar__font--size-icon ">
+                  <PiTextAaBold className="sidebar__font--size-icon-medium " />
+                </div>
+                <div className="sidebar__link--text sidebar__font--size-icon ">
+                  <PiTextAaBold className="sidebar__font--size-icon-large" />
+                </div>
+                <div className="sidebar__link--text sidebar__font--size-icon ">
+                  <PiTextAaBold className="sidebar__font--size-icon-xlarge" />
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
           <div className="sidebar__bottom">
             <Link href={"/settings"} className="sidebar__link--wrapper">

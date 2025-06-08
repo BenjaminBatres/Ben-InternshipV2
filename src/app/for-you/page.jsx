@@ -83,6 +83,7 @@ export default function page() {
                   imageLink={
                     "https://firebasestorage.googleapis.com/v0/b/summaristt.appspot.com/o/books%2Fimages%2Fmastery.png?alt=media&token=c41aac74-9887-4536-9478-93cd983892af"
                   }
+                  subscription={true}
                   isLoading={isLoading}
                 />
                 <RecommendedBooks
@@ -97,21 +98,21 @@ export default function page() {
                   imageLink={
                     "https://firebasestorage.googleapis.com/v0/b/summaristt.appspot.com/o/books%2Fimages%2Fatomic_habits.png?alt=media&token=51401979-e7cc-40c4-87fa-3b27d1fe761b"
                   }
+                  subscription={true}
                   isLoading={isLoading}
                 />
                 <RecommendedBooks
-                  title={
-                    "How to Win Friends and Influence People in the Digital Age"
-                  }
-                  subTitle={"Time-tested advice for the digital age"}
-                  author={"Dale Carnegie"}
+                  title={"How to Talk to Anyone"}
+                  subTitle={"92 Little Tricks for Big Success in Relationships"}
+                  author={"Leil Lowndes"}
                   id={"18tro3gle2p"}
                   rating={4.6}
                   duration={"03:22"}
                   imageLink={
-                    "https://firebasestorage.googleapis.com/v0/b/summaristt.appspot.com/o/books%2Fimages%2Fthe-4-day-week.png?alt=media&token=8f468ea2-f16c-4a96-9bc3-8f66aaff33ec"
+                    "https://firebasestorage.googleapis.com/v0/b/summaristt.appspot.com/o/books%2Fimages%2Fhow-to-talk-to-anyone.png?alt=media&token=48f77463-a093-42b4-8f1f-82fa4edd044c"
                   }
                   isLoading={isLoading}
+                  subscription={true}
                 />
               </div>
               <div className="for-you__title">Suggested Books</div>
@@ -128,6 +129,7 @@ export default function page() {
                   duration={"03.24"}
                   rating={4.3}
                   isLoading={isLoading}
+                  subscription={true}
                 />
                 <SuggestedBooks
                   id={"6ncszvwbl4e"}
@@ -142,6 +144,7 @@ export default function page() {
                   duration={"05.38"}
                   rating={4.5}
                   isLoading={isLoading}
+                  subscription={true}
                 />
                 <SuggestedBooks
                   id={"vt4i7lvosz"}
@@ -154,6 +157,7 @@ export default function page() {
                   duration={"03.18"}
                   rating={4.5}
                   isLoading={isLoading}
+                  subscription={true}
                 />
                 <SuggestedBooks
                   id={"g80xtszllo9"}
@@ -166,6 +170,7 @@ export default function page() {
                   duration={"02.50"}
                   rating={4.3}
                   isLoading={isLoading}
+                  subscription={true}
                 />
                 <SuggestedBooks
                   id={"6ctat6ynzqp"}
@@ -180,6 +185,7 @@ export default function page() {
                   duration={"02.45"}
                   rating={4.3}
                   isLoading={isLoading}
+                  subscription={true}
                 />
               </div>
             </div>

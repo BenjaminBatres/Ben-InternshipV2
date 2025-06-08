@@ -174,7 +174,6 @@ nav {
   width: 100%;
 }
 
-
 .auth {
   position: relative;
   max-width: 400px;
@@ -387,7 +386,8 @@ nav {
 
 /* SIDEBAR */
 
-.sidebar, .sidebar--opened {
+.sidebar,
+.sidebar--opened {
   background-color: #f7faf9;
   width: 200px;
   min-width: 200px;
@@ -400,10 +400,9 @@ nav {
 }
 
 .sidebar--opened {
-    transform: translateX(0) !important;
-    width: 80%;
+  transform: translateX(0) !important;
+  width: 80%;
 }
-
 
 .sidebar__overlay {
   position: fixed;
@@ -424,15 +423,15 @@ nav {
 }
 
 .sidebar__toggle--btn {
-    display: none;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .sidebar__toggle--btn svg {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .sidebar__logo {
@@ -501,6 +500,50 @@ nav {
 
 .active--tab {
   background-color: #2bd97c;
+}
+
+.sidebar__font--size-wrapper {
+  display: flex;
+  margin-left: 24px;
+  gap: 8px;
+}
+
+.sidebar__font--size-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
+.sidebar__font--size-wrapper:hover {
+  background-color: transparent;
+  cursor: default;
+}
+
+.sidebar__font--size-icon-small {
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar__font--size-icon-medium {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar__font--size-icon-large {
+  width: 28px;
+  height: 28px;
+}
+
+.sidebar__font--size-icon-xlarge {
+  width: 32px;
+  height: 32px;
+}
+
+.sidebar__link--wrapper:last-child {
+  margin-bottom: 0;
 }
 
 /* LANDING */
@@ -745,6 +788,22 @@ nav {
   font-weight: 300;
   color: #394547;
   margin-bottom: 16px;
+}
+
+.book__pill {
+  background-color: #032b41;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 18px;
+  padding: 0 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
 }
 
 /* SELCETED BOOK */

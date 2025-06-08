@@ -11,10 +11,12 @@ export default function SuggestedBooks({
   author,
   duration,
   rating,
+  subscription,
   isLoading,
 }) {
   return (
     <Link href={`/book/${id}`} className="for-you__recommended--books-link ">
+      {subscription ? <div className="book__pill">Premium</div> : ""}
       <figure className="book__image--wrapper" style={{ marginBottom: "8px" }}>
         {isLoading ? (
           <SkeletonBox width={"100%"} height={"100%"} />
