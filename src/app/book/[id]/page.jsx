@@ -10,6 +10,7 @@ import { LuBookOpenText } from "react-icons/lu";
 import { FaRegBookmark } from "react-icons/fa";
 import SkeletonBox from "@/app/components/ui/SkeletonBox";
 import { useRouter } from "next/navigation";
+import Searchbar from "@/app/components/Searchbar";
 
 export default function page({ params }) {
   const { id } = React.use(params);
@@ -54,6 +55,7 @@ export default function page({ params }) {
 
   return (
     <div className="wrapper">
+      <Searchbar />
       <div className="row">
         <div className="container">
           <div className="inner__wrapper">
