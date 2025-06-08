@@ -1,8 +1,10 @@
 import React from 'react'
+import Searchbar from '../components/Searchbar'
 
 export default function page() {
   return (
     <div className='wrapper'>
+      <Searchbar />
       <div className="container">
         <div className="row">
           <div className="section__title page__title">Settings</div>
