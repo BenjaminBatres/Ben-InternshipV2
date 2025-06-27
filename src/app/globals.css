@@ -992,7 +992,6 @@ nav {
   width: 200px;
 }
 
-
 .hover--effect:hover {
   background-color: #f1f6f4;
 }
@@ -1983,7 +1982,9 @@ nav {
   .inner-book__author,
   .inner-book__author--description,
   .inner-book__book--description,
-  .inner-book__tag {
+  .inner-book__tag,
+  .audio__book--summary-title,
+  .audio__book--summary-text {
     font-size: 14px;
   }
 
