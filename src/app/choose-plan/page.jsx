@@ -7,9 +7,14 @@ import { FaHandshake } from "react-icons/fa";
 import CollapseCard from "../components/CollapseCard";
 import Footer from "../components/Footer";
 import Auth from "../components/ui/Auth";
-
+import { getCheckoutUrl } from "../components/ui/StripePayment";
+import { app, auth } from "../firebase/init";
+import { useRouter } from "next/navigation";
 export default function page() {
   const [activePlanCard, setActivePlanCard] = useState(1);
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   let isModalOpen = false;
   function toggleModal() {
@@ -21,6 +26,44 @@ export default function page() {
   }
   const setActiveCard = (index) => {
     setActivePlanCard(index);
+  };
+
+  const upgradeToPremium = async () => {
+    const priceId = "price_1Rcpx94KeWD3ZbKTmhdcXbiF";
+    const user = auth.currentUser;
+    setLoading(true);
+    if (!user) {
+      toggleModal();
+      return;
+    }
+
+    try {
+      const checkoutUrl = await getCheckoutUrl(app, priceId);
+      router.push(checkoutUrl);
+    } catch (err) {
+      console.error("Failed to redirect:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const upgradeToPremiumMonthly = async () => {
+    const priceId = "price_1RcsUq4KeWD3ZbKTaR0mkIla";
+    const user = auth.currentUser;
+    setLoading(true);
+    if (!user) {
+      toggleModal();
+      return;
+    }
+
+    try {
+      const checkoutUrl = await getCheckoutUrl(app, priceId);
+      router.push(checkoutUrl);
+    } catch (err) {
+      console.error("Failed to redirect:", err);
+    } finally {
+      setLoading(false);
+    }
   };
   const planFeatures = [
     {
@@ -108,17 +151,61 @@ export default function page() {
             </div>
             <div className="plan__card--cta">
               <span className="btn--wrapper">
-                <button
+                {activePlanCard === 1 ? (
+                  <button
+                    className="btn"
+                    style={{ width: "300px" }}
+                    onClick={upgradeToPremium}
+                    disabled={loading}
+                  >
+                    <>
+                      {loading ? (
+                        <span className="loader"></span>
+                      ) : (
+                        "Start your free 7-day trail"
+                      )}
+                    </>
+                  </button>
+                ) : (
+                  <button
+                    className="btn"
+                    style={{ width: "300px" }}
+                    onClick={upgradeToPremiumMonthly}
+                    disabled={loading}
+                  >
+                    <>
+                      {loading ? (
+                        <span className="loader"></span>
+                      ) : (
+                        "Start your first month?"
+                      )}
+                    </>
+                  </button>
+                )}
+                {/* <button
                   className="btn"
                   style={{ width: "300px" }}
-                  onClick={toggleModal}
+                  onClick={upgradeToPremium}
+                  disabled={loading}
                 >
                   {activePlanCard === 1 ? (
-                    <span>Start your free 7-day trail</span>
+                    <>
+                      {loading ? (
+                        <span className="loader"></span>
+                      ) : (
+                        "Start your free 7-day trail"
+                      )}
+                    </>
                   ) : (
-                    <span>Start your first month</span>
+                    <>
+                    {loading ? (
+                        <span className="loader"></span>
+                      ) : (
+                        "Start your first month"
+                      )}
+                    </>
                   )}
-                </button>
+                </button> */}
               </span>
               <div className="plan__disclaimer">
                 {activePlanCard === 1 ? (

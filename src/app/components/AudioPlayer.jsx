@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
-import { FaPause } from "react-icons/fa";
 import { IoMdPlay } from "react-icons/io";
 import { RiForward10Line, RiReplay10Line } from "react-icons/ri";
 import { IoPause } from "react-icons/io5";
+import { auth, db } from "../firebase/init";
+import { doc, setDoc } from "firebase/firestore";
 
-export default function AudioPlayer({ src }) {
+export default function AudioPlayer({ src, book }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -62,6 +63,26 @@ export default function AudioPlayer({ src }) {
     setProgress(audioRef.current.currentTime);
   };
 
+  const handleAudioEnded = async () => {
+    const user = auth.currentUser;
+    if (!user) return;
+
+    try {
+      const docRef = doc(db, "users", user.uid, "finished", book.id);
+      await setDoc(docRef, {
+        id: book.id,
+        title: book.title,
+        subTitle: book.subTitle,
+        averageRating: book.averageRating,
+        author: book.author,
+        audioLink: book.audioLink,
+        imageLink: book.imageLink,
+      }); // Save the book to their library
+    } catch (error) {
+      console.error("Failed to save book:", error);
+    }
+  };
+
   return (
     <>
       <div className="audio__controls--wrapper">
@@ -85,9 +106,7 @@ export default function AudioPlayer({ src }) {
         </div>
       </div>
       <div className="audio__progress--wrapper">
-        <span className="audio__time">
-          {formatTime(progress)}
-        </span>
+        <span className="audio__time">{formatTime(progress)}</span>
         <input
           type="range"
           min={0}
@@ -101,9 +120,7 @@ export default function AudioPlayer({ src }) {
             }%, rgb(109, 120, 125) ${(progress / duration) * 100}%)`,
           }}
         />
-        <span className="audio__time">
-            {formatTime(duration)}
-        </span>
+        <span className="audio__time">{formatTime(duration)}</span>
 
         <audio
           ref={audioRef}
@@ -111,6 +128,7 @@ export default function AudioPlayer({ src }) {
           preload="metadata"
           onLoadedMetadata={handleLoadedMetadata}
           onTimeUpdate={handleTimeUpdate}
+          onEnded={handleAudioEnded}
         />
       </div>
     </>
