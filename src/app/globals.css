@@ -1994,6 +1994,10 @@ nav {
   .inner-book__bookmark {
     font-size: 16px;
   }
+
+  .summary {
+    height: calc(100vh - 260px);
+  }
 }
 
 @media (max-width: 576px) {

@@ -1,7 +1,6 @@
 import Number from "./ui/Number";
 import { BiCrown } from "react-icons/bi";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
-
 import { BiLeaf } from "react-icons/bi";
 
 export default function Numbers() {

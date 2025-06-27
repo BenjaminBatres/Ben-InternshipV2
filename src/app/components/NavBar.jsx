@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import Logo from "/public/assets/logo.png";
 import Auth from "./ui/Auth";
@@ -24,12 +23,12 @@ export default function NavBar() {
             <Image priority="true" src={Logo} alt="logo" className="nav__img" />
           </div>
           <ul className="nav__list--wrapper">
-            <li className="nav__list--login" onClick={toggleModal}>
+            <li className="nav__list nav__list--login" onClick={toggleModal}>
               Login
             </li>
-            <li className="nav__list">About</li>
-            <li className="nav__list">Contact</li>
-            <li className="nav__list">Help</li>
+            <li className="nav__list nav__list--mobile">About</li>
+            <li className="nav__list nav__list--mobile">Contact</li>
+            <li className="nav__list nav__list--mobile">Help</li>
           </ul>
         </div>
       </nav>
